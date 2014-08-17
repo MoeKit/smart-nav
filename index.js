@@ -21,7 +21,7 @@ var SmartNav = function(option) {
         };
         var absoluteTop = $column.offset().top + columnOffset + $column.height();
         var smallestOffset = sticky ? $target.offset().top : oTop + $target.height();
-        var middleOffset = $column.offset().top + columnOffset + $column.height() - $target.height() - 0;
+        var middleOffset = $column.offset().top + columnOffset + $column.height() - $target.height() - oTop;
         var biggestOffset = $doc.height() - $window.height();
 
         var handleBar = function() {

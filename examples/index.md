@@ -23,7 +23,7 @@
         height:250px;
         background:blue;
         position:fixed;
-        top:20px;
+        top:100px;
         right:10px;
     }
 
