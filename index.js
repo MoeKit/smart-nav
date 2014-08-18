@@ -9,6 +9,7 @@ var SmartNav = function(option) {
     // get top
     var oTop = option.top || parseInt($target.css('top'), 10);
     var sticky = option.sticky || false;
+    var right = option.right || parseInt($target.css('right'), 10);
 
     var $column = $(option.column),
         columnOffset = option.columnOffset || 0;
@@ -17,7 +18,7 @@ var SmartNav = function(option) {
         // 屏幕宽度
         var width = $(window).width();
         var getRight = function() {
-            return 10;
+            return right;
         };
         var absoluteTop = $column.offset().top + columnOffset + $column.height();
         var smallestOffset = sticky ? $target.offset().top : oTop + $target.height();
@@ -30,8 +31,7 @@ var SmartNav = function(option) {
                 if (!option.sticky) {
                     $target.css({
                         position: 'fixed',
-                        top: oTop,
-                        right: getRight()
+                        top: oTop
                     });
                 } else {
                     // not support sticky now
@@ -40,20 +40,17 @@ var SmartNav = function(option) {
                 if ($target.css('position') === 'absolute') {
                     $target.css({
                         position: 'fixed',
-                        top: oTop,
-                        right: getRight()
+                        top: oTop
                     });
                 } else {
                     $target.css({
                         position: 'fixed',
-                        top: oTop,
-                        right: getRight()
+                        top: oTop
                     });
                 }
             } else if (top > middleOffset) {
                 $target.css({
                     position: 'absolute',
-                    right: getRight(),
                     top: absoluteTop - $target.height()
                 });
             }

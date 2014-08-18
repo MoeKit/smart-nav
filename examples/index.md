@@ -24,7 +24,7 @@
         background:blue;
         position:fixed;
         top:100px;
-        right:10px;
+        right:20px;
     }
 
 </style>
