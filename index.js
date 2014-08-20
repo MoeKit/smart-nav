@@ -36,7 +36,7 @@ var SmartNav = function(option) {
         var handleBar = function() {
             var top = $window.scrollTop();
             if (_this.mode === 'bottom') {
-                var offset = $(window).height() - ($column.height() - ($window.scrollTop() - $column.offset().top));
+                var offset = $(window).height() - ($column.height() - ($window.scrollTop() - $column.offset().top))-option.columnOffset;
                 if (offset < 100) {
                     setOriginalStyle();
                 } else {
