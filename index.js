@@ -7,6 +7,8 @@ var SmartNav = function(option) {
     var $target = $(option.target),
         targetHeight = $target.height();
     this.mode = option.mode || $target.css('top') !== 'auto' ? 'top' : 'bottom';
+    // column edge
+    this.edge = option.ColumnEdge || 'bottom';
     // get top
     var oTop = option.top || this.mode === 'top' ? parseInt($target.css('top'), 10) : ($window.height() - parseInt($target.css('bottom'), 10) - targetHeight);
     var oriTop = $target.css('top');
@@ -18,7 +20,6 @@ var SmartNav = function(option) {
         columnOffset = option.columnOffset || 0;
 
     var fixSidebar = function(onresize) {
-        // 屏幕宽度
         var width = $(window).width();
         var getRight = function() {
             return right;
