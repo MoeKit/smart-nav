@@ -4,11 +4,32 @@ var $ = require('jquery'),
     $doc = $(document);
 
 var SmartNav = function(option) {
-    var $target = $(option.target),
-        targetHeight = $target.height();
-    this.mode = option.mode || $target.css('top') !== 'auto' ? 'top' : 'bottom';
     // column edge
-    this.edge = option.ColumnEdge || 'bottom';
+    this.edge = option.columnEdge || 'bottom';
+    var $column = $(option.column),
+        columnOffset = option.columnOffset || 0;
+    var $target = $(option.target);
+    if(this.edge === 'top'){
+        var $oldColumn = $column;
+        // append a div for positioning
+        $column = $('<div/>');
+        var top = $oldColumn.offset().top - columnOffset - 2;
+        $column.css({
+            position: 'absolute',
+            width: '50px',
+            height: '2px',
+            left: '0',
+            'background-color':'yellow',
+            top: top,
+            visibility: 'hidden'
+        }).appendTo('body');
+    }else {
+        
+    }
+
+
+    var targetHeight = $target.height();
+    this.mode = option.mode || $target.css('top') !== 'auto' ? 'top' : 'bottom';
     // get top
     var oTop = option.top || this.mode === 'top' ? parseInt($target.css('top'), 10) : ($window.height() - parseInt($target.css('bottom'), 10) - targetHeight);
     var oriTop = $target.css('top');
@@ -16,8 +37,7 @@ var SmartNav = function(option) {
     var sticky = option.sticky || false;
     var right = option.right || parseInt($target.css('right'), 10);
     var _this = this;
-    var $column = $(option.column),
-        columnOffset = option.columnOffset || 0;
+    
 
     var fixSidebar = function(onresize) {
         var width = $(window).width();
