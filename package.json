@@ -1,6 +1,6 @@
 {
   "name": "smart-nav",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "",
   "keywords": [],
   "homepage": "",
@@ -10,7 +10,7 @@
     "url": "git@github.com:MoeKit/smart-nav.git"
   },
   "bugs": {
-    "url": ""
+    "url": "https://github.com/moekit/smart-nav/issues"
   },
   "licenses": "MIT",
   "spm": {
