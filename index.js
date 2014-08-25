@@ -23,10 +23,7 @@ var SmartNav = function(option) {
             top: top,
             visibility: 'hidden'
         }).appendTo('body');
-    }else {
-        
     }
-
 
     var targetHeight = $target.height();
     this.mode = option.mode || $target.css('top') !== 'auto' ? 'top' : 'bottom';
@@ -34,7 +31,6 @@ var SmartNav = function(option) {
     var oTop = option.top || this.mode === 'top' ? parseInt($target.css('top'), 10) : ($window.height() - parseInt($target.css('bottom'), 10) - targetHeight);
     var oriTop = $target.css('top');
     var oriBottom = parseInt($target.css('bottom'), 10);
-    var sticky = option.sticky || false;
     var right = option.right || parseInt($target.css('right'), 10);
     var _this = this;
     
@@ -45,7 +41,7 @@ var SmartNav = function(option) {
             return right;
         };
         var absoluteTop = $column.offset().top + columnOffset + $column.height();
-        var smallestOffset = sticky ? $target.offset().top : oTop + $target.height();
+        var smallestOffset = oTop + $target.height();
         var middleOffset = $column.offset().top + columnOffset + $column.height() - $target.height() - oTop;
         var biggestOffset = $doc.height() - $window.height();
         var setOriginalStyle = function() {
