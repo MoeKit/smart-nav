@@ -8,6 +8,12 @@ var SmartNav = function(option) {
     this.edge = option.columnEdge || 'bottom';
     var $column = $(option.column),
         columnOffset = option.columnOffset || 0;
+	
+	// no column found
+	if(!$column.length){
+		return;
+	}
+	
     var $target = $(option.target);
     if (this.edge === 'top') {
         var $oldColumn = $column;
