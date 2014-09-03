@@ -44,7 +44,7 @@ seajs.use('index', function(smartNav) {
 </script>
 ````
 
-
+## fix bottom 
 ````iframe:600
 <style>
     #box {
@@ -64,7 +64,7 @@ seajs.use('index', function(smartNav) {
         height:250px;
         background:blue;
         position:fixed;
-        bottom:100px;
+        bottom:200px;
         right:20px;
     }
 

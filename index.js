@@ -9,7 +9,7 @@ var SmartNav = function(option) {
     var $column = $(option.column),
         columnOffset = option.columnOffset || 0;
     var $target = $(option.target);
-    if(this.edge === 'top'){
+    if (this.edge === 'top') {
         var $oldColumn = $column;
         // append a div for positioning
         $column = $('<div/>');
@@ -19,7 +19,7 @@ var SmartNav = function(option) {
             width: '50px',
             height: '2px',
             left: '0',
-            'background-color':'yellow',
+            'background-color': 'yellow',
             top: top,
             visibility: 'hidden'
         }).appendTo('body');
@@ -33,7 +33,7 @@ var SmartNav = function(option) {
     var oriBottom = parseInt($target.css('bottom'), 10);
     var right = option.right || parseInt($target.css('right'), 10);
     var _this = this;
-    
+
 
     var fixSidebar = function(onresize) {
         var width = $(window).width();
@@ -53,8 +53,9 @@ var SmartNav = function(option) {
         var handleBar = function() {
             var top = $window.scrollTop();
             if (_this.mode === 'bottom') {
-                var offset = $(window).height() - ($column.height() - ($window.scrollTop() - $column.offset().top))-option.columnOffset;
-                if (offset < 100) {
+                var offset = $(window).height() - ($column.height() - ($window.scrollTop() - $column.offset().top)) - columnOffset;
+
+                if (offset < oriBottom) {
                     setOriginalStyle();
                 } else {
                     $target.css({
