@@ -15,11 +15,13 @@ var SmartNav = function(option) {
 	}
 	
     var $target = $(option.target);
+    this.mode = option.mode || $target.css('top') !== 'auto' ? 'top' : 'bottom';
     if (this.edge === 'top') {
         var $oldColumn = $column;
         // append a div for positioning
         $column = $('<div/>');
-        var top = $oldColumn.offset().top - columnOffset - 2;
+        var bottom = this.mode==='top'?0:parseInt($target.css('bottom'),10);
+        var top = $oldColumn.offset().top  - 2 - bottom
         $column.css({
             position: 'absolute',
             width: '50px',
@@ -32,7 +34,6 @@ var SmartNav = function(option) {
     }
 
     var targetHeight = $target.height();
-    this.mode = option.mode || $target.css('top') !== 'auto' ? 'top' : 'bottom';
     // get top
     var oTop = option.top || this.mode === 'top' ? parseInt($target.css('top'), 10) : ($window.height() - parseInt($target.css('bottom'), 10) - targetHeight);
     var oriTop = $target.css('top');

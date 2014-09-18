@@ -85,6 +85,7 @@ seajs.use('index', function(smartNav) {
 </script>
 ````
 
+## 设置 columnOffset
 
 ````iframe:600
 <style>
@@ -128,7 +129,7 @@ seajs.use('index', function(smartNav) {
 </script>
 ````
 
-
+## 设置 columnEdge
 ````iframe:600
 <style>
     #box {
@@ -151,6 +152,15 @@ seajs.use('index', function(smartNav) {
         top:100px;
         right:20px;
     }
+    
+    #target2 {
+        width:200px;
+        height:250px;
+        background:blue;
+        position:fixed;
+        bottom:100px;
+        left:0;
+    }
 
 </style>
 <div id="box"></div>
@@ -159,14 +169,25 @@ seajs.use('index', function(smartNav) {
 <div id="target">
     I am sidebar
 </div>
+<div id="target2">
+    I am sidebar
+</div>
 <script>
 seajs.use('index', function(smartNav) {
     new smartNav({
         target:'#target',
         column:'#footer',
-        columnOffset:0,
+        columnOffset:-15,
         columnEdge:'top'
     });
+    
+    new smartNav({
+        target:'#target2',
+        column:'#footer',
+        columnOffset:-15,
+        columnEdge:'top'
+    });
+    
 });
 </script>
 ````
