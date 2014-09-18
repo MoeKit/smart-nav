@@ -9,7 +9,6 @@
 ## 使用
 
 ```javascript
-var SmartNav = require('index');
 var smartnav = new SmartNav({
     // options
 });
